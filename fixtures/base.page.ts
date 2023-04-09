@@ -62,13 +62,13 @@ export abstract class BasePage implements IEditableElements, INonEditableElement
     //     return this.getElement(selector).invoke('val');
     // }
 
-    // fillHMSAutocompleteField(selector: string, text: string, liSelector = '.ac_results li'): void {
-    //     cy.intercept('/autocomplete/search/*').as('acAPI');
-    //     this.writeTextToField(selector, text);
-    //     cy.waitUntil(() => cy.get(selector).should('not.have.class', 'ac_loading'));
-    //     cy.get('@acAPI.last');
-    //     this.retrySelect(liSelector, text);
-    // }
+    fillHMSAutocompleteField(selector: string, text: string, liSelector = '.ac_results li'): void {
+        // cy.intercept('/autocomplete/search/*').as('acAPI');
+        // this.writeTextToField(selector, text);
+        // cy.waitUntil(() => cy.get(selector).should('not.have.class', 'ac_loading'));
+        // cy.get('@acAPI.last');
+        // this.retrySelect(liSelector, text);
+    }
 
     // retrySelect(selector: string, value: string) {
     //     let retries = -1;

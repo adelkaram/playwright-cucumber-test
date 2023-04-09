@@ -2,6 +2,7 @@ import { BasePage } from "../../../fixtures/base.page";
 import { String } from 'typescript-string-operations';
 
 export class BillingPage extends BasePage {
+    protected url = "{0}/billing/";
     protected elementsSelectors = {
         billingPassword: '#id_password',
         cashierLoginBtn: 'input[type="submit"]',

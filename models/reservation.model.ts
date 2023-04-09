@@ -36,13 +36,13 @@ export interface ReservationRoomNights {
 	rate?: number;
 	actual_room_type: number;
 	from_date: string;
-	to_date: string;
+	to_date?: string;
 	children: Children[];
 	number_of_adults: number;
 	number_of_children: number;
 	parent_room_category?: number;
 	parent_room_type?: number;
-	room_number: number;
+	room_number?: number;
 	manual_rate: boolean;
 	currency?: string;
 	rate_amount?: string;
