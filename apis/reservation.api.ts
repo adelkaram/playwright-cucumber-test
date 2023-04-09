@@ -9,7 +9,7 @@ export class ReservationAPI {
     // private interceptionReservationPOSTAPI = `${this.apiURL}/v2/**`;
     // request: APIRequestContext;
 
-    
+
     private static _instance: ReservationAPI;
 
     public static get Instance() { // To apply singleton pattern
@@ -20,17 +20,17 @@ export class ReservationAPI {
     //     return this.interceptionReservationPOSTAPI;
     // }
 
-    createReservation(request: APIRequestContext, user: HMSUser, tenantID: number, payload: Partial<Reservation>) {
-        
-        const response = request.post(`${this.apiURL}/v2/?tenant_id=${tenantID}`, {
+    async createReservation(request: APIRequestContext, user: HMSUser, tenantID: number, payload: Partial<Reservation>) {
+
+        const response = await request.post(`${this.apiURL}/v2/?tenant_id=${tenantID}`, {
             data:
-            this.setReservationPayloadDefaults(payload)
+                this.setReservationPayloadDefaults(payload)
             ,
             headers: {
-              authorization: 'Basic ' + btoa(`${user.userName}:${user.password}`),
-              'content-type': 'application/json',
+                authorization: 'Basic ' + btoa(`${user.userName}:${user.password}`),
+                'content-type': 'application/json',
             }
-          });
+        });
         return response;
     }
 
@@ -76,7 +76,7 @@ export class ReservationAPI {
                     room_number: 1,
                     from_date: request.arrival_date ?? '',
                     to_date: moment(request.departure_date).isSame(request.arrival_date) ? request.arrival_date :
-                        moment(request.departure_date).clone().subtract(1, 'day').format('YYYY-MM-DD') ,
+                        moment(request.departure_date).clone().subtract(1, 'day').format('YYYY-MM-DD'),
                     children: [],
                     number_of_adults: 1,
                     number_of_children: 0,

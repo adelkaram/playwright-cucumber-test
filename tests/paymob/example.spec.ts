@@ -148,8 +148,7 @@ test('paymob payment', async ({ page, request }) => {
   ///create res API
   const user = new UserFactory()
   reservationAPI.createReservation(request,user.user,278,body).then(response => {
-    console.log(response.body)
-    console.log(response.json())
+    console.log(response)
 
   });
 
