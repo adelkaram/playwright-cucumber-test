@@ -5,20 +5,7 @@ import { APIRequestContext } from '@playwright/test';
 
 export class ReservationAPI {
     private apiURL: string = '/api/reservation/individualreservation';
-    private createdReservationIDS: string[];
-    // private interceptionReservationPOSTAPI = `${this.apiURL}/v2/**`;
-    // request: APIRequestContext;
 
-
-    private static _instance: ReservationAPI;
-
-    public static get Instance() { // To apply singleton pattern
-        return this._instance || (this._instance = new this());
-    }
-
-    // get reservationInterceptionURL() {
-    //     return this.interceptionReservationPOSTAPI;
-    // }
 
     async createReservation(request: APIRequestContext, user: HMSUser, tenantID: number, payload: Partial<Reservation>) {
 
@@ -172,15 +159,4 @@ export class ReservationAPI {
     //     });
     // }
 
-    get createdReservationIDs() {
-        return this.createdReservationIDS;
-    }
-
-    addReservationID(id: string) {
-        this.createdReservationIDS.push(id);
-    }
-
-    clearReservationIDs() {
-        this.createdReservationIDS = [];
-    }
 }
