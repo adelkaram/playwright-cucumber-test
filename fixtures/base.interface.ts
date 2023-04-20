@@ -1,10 +1,9 @@
 export interface IEditableElements {
-    writeTextToField(fieldSelector: string, text: string): void;
-    fillHMSAutocompleteField(selector: string, text: string): void;
-    getSelector(field: string, replaceChr: string): String;
+    writeTextToField(fieldSelector: string, text: string, iframeSelector?: string);
+    getSelector(elementSelector: string, iframeSelector?: string);
 }
 
 export interface INonEditableElements {
-    click(selector: string, forceClick: boolean, timeout: number): void;
-    getSelector(field: string, replaceChr: string): String;
+    click(elementSelector: string, iframeSelector?: string);
+    getSelector(field: string, replaceChr: string);
 }
