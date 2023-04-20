@@ -1,23 +1,20 @@
-import { BaseIframe } from "../../../fixtures/base.iframe";
+import { BaseIframe } from "fixtures/base.iframe";
 
 export class SplitPostingIframe extends BaseIframe {
     protected elementsSelectors = {
+        irfameSelector: '.cboxIframe',
         amountToSplitField: '#id_amount_to_split',
         percentageToSplitField: '#id_percentage_to_split',
-        saveButtonInWindowPopUp: 'input[name="_save"]',
+        saveButton: 'input[name="_save"]',
     };
-
-    constructor() {
-        super();
-    }
 
     async splitPosting(amount?: string, percentage?: string): Promise<void> {
         if (amount) {
-            this.writeTextToField(this.elementsSelectors.amountToSplitField, amount);
+            await this.writeTextToField(this.elementsSelectors.amountToSplitField, amount, this.elementsSelectors.irfameSelector);
         } else if (percentage) {
-            this.writeTextToField(this.elementsSelectors.percentageToSplitField, percentage);
+            await this.writeTextToField(this.elementsSelectors.percentageToSplitField, percentage, this.elementsSelectors.irfameSelector);
         }
-        await this.page.frameLocator(this.commonIframeElements.popUpIframe).locator(this.elementsSelectors.saveButtonInWindowPopUp).click();
+        await this.click(this.elementsSelectors.saveButton, this.elementsSelectors.irfameSelector)
     }
 
 }
