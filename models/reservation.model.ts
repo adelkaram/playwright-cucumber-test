@@ -6,7 +6,7 @@ export interface Reservation {
 	check_out_time: string;
 	market?: number;
 	source?: number;
-	channel: string;
+	channel: number;
 	state?: string;
 	country: string;
 	actual_departure_date?: string;
@@ -16,7 +16,7 @@ export interface Reservation {
 	purpose_of_stay: string;
 	reservation_mode: string;
 	room_nights: ReservationRoomNights[];
-	updated_on: string;
+	updated_on?: string;
 	confirmation_type: string;
 	rate_confirmation?: string;
 	reservation_confirmation?: string;
@@ -32,9 +32,9 @@ export interface Reservation {
 }
 
 export interface ReservationRoomNights {
-	room_type: number;
+	room_type: string;
 	rate?: number;
-	actual_room_type: number;
+	actual_room_type: string;
 	from_date: string;
 	to_date?: string;
 	children: Children[];
