@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-        "baseUrl": ".", // This must be specified if "paths" is.
-        "paths": {
-            "@myhelper/*": [
-                "packages/myhelper/*"
-            ] // This mapping is relative to "baseUrl".
-        },
-        "strictPropertyInitialization": false
-    }
-}
+      "target": "es6",
+      "module": "commonjs",
+      // ... other options
+    },
+    "include": [
+        "src/**/*.ts",
+        "playwright.config.ts"
+    ],
+    // other
+  }
